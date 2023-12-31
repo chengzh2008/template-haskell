@@ -55,6 +55,8 @@ if [[ "$REINIT" != [Nn]* ]]; then
         set -x
         rm -rf .git
         git init -b main
+        git config user.name "$AUTHNAME"
+        git config user.email "$EMAIL"
         git add --all
         git commit -m "Initial commit"
     ) 2>&1 | indent
