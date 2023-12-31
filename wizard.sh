@@ -27,11 +27,11 @@ echo "Running template-haskell Haskell project generator wizard"
 echo "Substituting placeholder variables..."
 (
     set -x
-    git ls-files | xargs -I _ sed _ -i \
+    git ls-files | xargs -I _ sed -i '' \
         -e "s#PKGNAME#$PKGNAME#g" \
         -e "s#AUTHNAME#$AUTHNAME#g" \
         -e "s#EMAIL#$EMAIL#g" \
-        -e "s#CURRENTYEAR#$currentyear#g"
+        -e "s#CURRENTYEAR#$currentyear#g" _
 ) 2>&1 | indent
 
 echo "Renaming files..."
