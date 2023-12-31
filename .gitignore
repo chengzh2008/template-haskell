@@ -14,6 +14,8 @@ cabal-dev
 *.dyn_hi
 .hpc
 .hsenv
+.envrc
+.direnv/
 .cabal-sandbox/
 cabal.sandbox.config
 *.prof
