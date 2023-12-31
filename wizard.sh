@@ -54,7 +54,7 @@ if [[ "$REINIT" != [Nn]* ]]; then
     (
         set -x
         rm -rf .git
-        git init
+        git init -b main
         git add --all
         git commit -m "Initial commit"
     ) 2>&1 | indent
