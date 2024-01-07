@@ -13,9 +13,8 @@ main =
         Lib.addOne 3 `shouldBe` 4
 
       it "should monad" $ do
-        maybeExample `shouldBe` Some 52
+        maybeExample `shouldBe` MyValue 52
           where
             maybeExample :: MyMaybe Int
-            maybeExample =
-              Some 42 Monad.>>= \a -> Some (10 + a)
+            maybeExample = mybind (MyValue 42) (\v -> MyValue (v + 10))
 

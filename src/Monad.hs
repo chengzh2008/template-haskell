@@ -1,4 +1,4 @@
-module Monad 
+module Monad
   (
     MyMaybe(..),
     MyMonad(..),
@@ -8,16 +8,16 @@ where
 -- Define the Monad type class
 class MyMonad m where
   -- Return a value in the monadic context
-  return :: a -> m a
+  myreturn :: a -> m a
 
   -- Bind operation to sequence computations
-  (>>=) :: m a -> (a -> m b) -> m b
+  mybind :: m a -> (a -> m b) -> m b
 
-data MyMaybe x = Some x | Nah
+data MyMaybe x = MyValue x | Nah
   deriving (Eq, Show)
 
 -- Example Monad instance: Maybe
 instance MyMonad MyMaybe where
-  return x = Some x
-  Nah >>= _      = Nah
-  (Some x) >>= f = f x
+  myreturn x = MyValue x
+  mybind Nah _         = Nah
+  mybind (MyValue x) f = f x

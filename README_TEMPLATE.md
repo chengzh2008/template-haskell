@@ -35,6 +35,7 @@ add teh following to `~/.config/nix/nix.conf`
 
 - haskell
 - haskell syntax highlighting
+- direnv by Martin Kühl
 
 ## ghcup
 
